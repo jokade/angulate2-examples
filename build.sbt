@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = project.in(file(".")).
   enablePlugins(ScalaJSPlugin).
-  aggregate(firstApp, displayData).
+  aggregate(firstApp, displayData, userInput).
   settings(commonSettings:_*)
   
 lazy val firstApp = project.in(file("01_firstApp")).
@@ -21,5 +21,9 @@ lazy val firstApp = project.in(file("01_firstApp")).
   settings(commonSettings:_*)
 
 lazy val displayData = project.in(file("02_displayData")).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings:_*)
+
+lazy val userInput = project.in(file("03_userInput")).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings:_*)
