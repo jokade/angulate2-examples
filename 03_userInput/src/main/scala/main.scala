@@ -20,6 +20,5 @@ class TodoList {
 
 @js.annotation.JSExport
 object Main {
-  angular.register[TodoList]
   angular.bootstrapWith[TodoList]
 }

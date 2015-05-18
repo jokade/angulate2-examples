@@ -8,8 +8,9 @@ import biz.enef.angulate2._
                 <ul>
                   <li *for="#name of names">{{name}}</li>
                 </ul> 
+                <p *if="names.length > 3">You have many friends!</p>
              """,
-  directives = js.Array( angular.For )
+  directives = js.Array( angular.For, angular.If )
 )
 class DisplayComponent {
   val myName = "Alice"
@@ -18,6 +19,5 @@ class DisplayComponent {
 
 @js.annotation.JSExport
 object Main {
-  angular.register[DisplayComponent]
   angular.bootstrapWith[DisplayComponent]
 }
