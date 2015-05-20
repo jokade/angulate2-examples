@@ -20,7 +20,10 @@ lazy val firstApp = project.in(file("01_firstApp")).
 
 lazy val displayData = project.in(file("02_displayData")).
   enablePlugins(Angulate2Plugin).
-  settings(commonSettings:_*)
+  settings(commonSettings:_*).
+  settings(
+    scalacOptions += "-Xmacro-settings:biz.enef.angulate2.debug.Component"
+  )
 
 lazy val userInput = project.in(file("03_userInput")).
   enablePlugins(Angulate2Plugin).
