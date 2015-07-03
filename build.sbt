@@ -11,6 +11,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = project.in(file(".")).
+  enablePlugins(Angulate2Plugin).
   aggregate(firstApp, displayData, userInput).
   settings(commonSettings:_*)
   

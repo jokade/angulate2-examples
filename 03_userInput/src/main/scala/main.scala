@@ -1,5 +1,5 @@
 import scalajs.js
-import biz.enef.angulate2._
+import angulate2._
 
 @Component(
   selector = "todo-list",
