@@ -10,7 +10,7 @@ import angulate2._
                 <input #todotext>
                 <button (click)="addTodo(todotext.value)">Add Todo</button>
              """,
-  directives = js.Array( angular.For, angular.If )
+  directives = js.Array( angular.NgFor, angular.NgIf )
 )
 class TodoList {
   var todos = js.Array("Eat Breakfast", "Walk Dog", "Breathe")

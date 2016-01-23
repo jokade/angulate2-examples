@@ -12,12 +12,12 @@ class FriendsService {
   template = """<p>My name: {{ myName }}</p>
                 <p>Friends:</p>
                 <ul>
-                  <li *for="#name of names">{{name}}</li>
+                  <li *ng-for="#name of names">{{name}}</li>
                 </ul> 
-                <p *if="names.length > 3">You have many friends!</p>
+                <p *ng-if="names.length > 3">You have many friends!</p>
              """,
-  directives = js.Array( angular.For, angular.If ),
-  injectables = js.Array( @@[FriendsService] )
+  directives = js.Array( angular.NgFor, angular.NgIf ),
+  appInjector = js.Array( @@[FriendsService] )
 )
 class DisplayComponent(friends: FriendsService) {
   val myName = "Alice"
