@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Angulate2 example: Displaying Data</title>
+  <title>Tour of Heroes</title>
   <script src="https://code.angularjs.org/2.0.0-beta.1/Rx.umd.min.js"></script>
   <script src="https://code.angularjs.org/2.0.0-beta.1/angular2-polyfills.min.js"></script>
   <script src="https://code.angularjs.org/2.0.0-beta.1/angular2-all.umd.js"></script>
-  <script src="target/scala-2.11/displaydata-fastopt.js"></script>
+  <script src="target/scala-2.11/heroes-fastopt.js"></script>
   <script src="target/scala-2.11/annotations.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded',function() {
-      // start the application
-      ng.platform.browser.bootstrap(DisplayApp);
-    });
+  document.addEventListener('DOMContentLoaded', function() {
+    ng.platform.browser.bootstrap(HeroesApp);
+  });
   </script>
 </head>
 <body>
-<display></display>
+<my-app></my-app>
 </body>
 </html>
