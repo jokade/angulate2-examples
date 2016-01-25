@@ -24,11 +24,17 @@ Execute
 in `sbt` then load the file `$ROOT/02_displayData/index.html` into your browser.
 
 ### 03 User Input
-This example is an adaption of the [User Input Example](https://angular.io/docs/js/latest/guide/user-input.html) from the Angular 2  guide).
+This example is an adaption of the [User Input Example](https://angular.io/docs/js/latest/guide/user-input.html) from the Angular 2  guide.
 Execute
 ```
 > userInput/fastOptJS
 ```
 in `sbt` then load the file `$ROOT/03_userInput/index.html` into your browser.
 
-
+### 04 Hero Editor
+This example is an adaption of the [Tour of Heroes Turorial](https://angular.io/docs/ts/latest/tutorial/) from the Angular 2 guide.
+Execute
+```
+> heroes/fastOptJS
+```
+in `sbt` then load the file `$ROOT/04_heroes/index.html` into your browser.
