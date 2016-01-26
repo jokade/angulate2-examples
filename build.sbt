@@ -32,13 +32,18 @@ lazy val heroes = project.in(file("04_heroes")).
   enablePlugins(Angulate2Plugin).
   settings(commonSettings:_*)
 
+lazy val todomvc = project.in(file("05_todomvc")).
+  enablePlugins(Angulate2Plugin).
+  settings(commonSettings:_*)
+
 lazy val server = project.
   settings(commonSettings:_*).
   settings(
     run in Compile <<= (run in Compile) dependsOn (
       fastOptJS in (firstApp,Compile),
       fastOptJS in (displayData,Compile),
-      fastOptJS in (heroes,Compile)
+      fastOptJS in (heroes,Compile),
+      fastOptJS in (todomvc,Compile)
     ),
     libraryDependencies ++= Seq(
       "de.surfice" %% "surf-rest" % "0.1-SNAPSHOT"

@@ -38,6 +38,12 @@ object Main extends App {
           respondWithResource("04_heroes/index.html", ContentType.HTML)
         } ~
         serveStatic("04_heroes/")
+      } ~
+      prefix("05") {
+        get { _ =>
+          respondWithResource("05_todomvc/index.html", ContentType.HTML)
+        } ~
+        serveStatic("05_todomvc/")
       }
   })
 

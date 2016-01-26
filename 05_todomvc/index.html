@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-framework="angular2">
+<head>
+  <meta charset="utf-8">
+  <title>Angular2 • TodoMVC</title>
+  <link rel="stylesheet" href="src/main/resources/css/base.css">
+  <link rel="stylesheet" href="src/main/resources/css/index.css">
+  <script src="https://code.angularjs.org/2.0.0-beta.1/Rx.umd.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.1/angular2-polyfills.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.1/angular2-all.umd.js"></script>
+  <script src="target/scala-2.11/todomvc-fastopt.js"></script>
+  <script src="target/scala-2.11/annotations.js"></script>
+</head>
+<body>
+<todo-app></todo-app>
+<footer class="info">
+  <p>Double-click to edit a todo</p>
+  <p>
+    Created by <a href="http://github.com/samccone">Sam Saccone</a> and <a href="http://github.com/colineberhardt">Colin Eberhardt</a>
+    using <a href="http://angular.io">Angular2</a>
+  </p>
+  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ng.platform.browser.bootstrap(TodoApp);
+  });
+</script>
+</body>
+</html>
