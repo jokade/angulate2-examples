@@ -4,37 +4,19 @@ Examples for [angulate2](https://github.com/jokade/angulate2) (a Scala.js bindin
 Getting Started
 ---------------
 Clone this repository, start `sbt` in the root directory, and then run one of the following examples.
-To compile all examples, run
-```sbt fastOptJS```
+To run the examples, execute
+```sbt server/run```
+and point your browser to `http://localhost:8080`.
 
 ### 01 First App
 This example is an adaptation of the [setup example from the Angular 2 guide](https://angular.io/docs/js/latest/guide/setup.html).  
-Execute
-```
-> firstApp/fastOptJS
-```
-in `sbt` then load the file `$ROOT/01_firstApp/index.html` into your browser.
 
 ### 02 Displaying Data
 This example is an adaptation of the [Displaying Data Example from the Angular 2 guide](https://angular.io/docs/js/latest/guide/displaying-data.html).  
-Execute
-```
-> displayData/fastOptJS
-```
-in `sbt` then load the file `$ROOT/02_displayData/index.html` into your browser.
 
 ### 03 User Input
-This example is an adaption of the [User Input Example](https://angular.io/docs/js/latest/guide/user-input.html) from the Angular 2  guide.
-Execute
-```
-> userInput/fastOptJS
-```
-in `sbt` then load the file `$ROOT/03_userInput/index.html` into your browser.
+This example is an adaptation of the [User Input Example](https://angular.io/docs/js/latest/guide/user-input.html) from the Angular 2  guide.
 
 ### 04 Hero Editor
-This example is an adaption of the [Tour of Heroes Turorial](https://angular.io/docs/ts/latest/tutorial/) from the Angular 2 guide.
-Execute
-```
-> heroes/fastOptJS
-```
-in `sbt` then load the file `$ROOT/04_heroes/index.html` into your browser.
+This example is an adaptation of the [Tour of Heroes Turorial](https://angular.io/docs/ts/latest/tutorial/) from the Angular 2 guide.
+
