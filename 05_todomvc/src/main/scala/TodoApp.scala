@@ -13,5 +13,34 @@ import angulate2._
   providers = @@[TodoStore]
 )
 class TodoApp(val todoStore: TodoStore) {
+  var newTodoText = ""
 
+  def stopEditing(todo: Todo, editedTitle: String): Unit = {
+    todo.title = editedTitle
+    todo.editing = false
+  }
+
+  def cancelEditingTodo(todo: Todo)= todo.editing = false
+
+  def updateEditingTodo(todo: Todo, editedTitle: String): Unit = {
+    todo.editing = false
+    editedTitle.trim match {
+      case "" => todoStore.remove(todo)
+      case t => todo.title = t
+    }
+    todoStore.updateStore()
+  }
+
+  def editTodo(todo: Todo) = todo.editing = true
+
+  def removeCompleted() = todoStore.removeCompleted()
+
+  def toggleCompletion(todo: Todo) = todoStore.toggleCompletion(todo)
+
+  def remove(todo: Todo) = todoStore.remove(todo)
+
+  def addTodo() = if(newTodoText.trim!="") {
+    todoStore.add(newTodoText)
+    newTodoText = ""
+  }
 }

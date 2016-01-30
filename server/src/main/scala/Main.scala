@@ -1,4 +1,4 @@
-import slogging.{PrintLoggerFactory, LoggerConfig}
+import slogging.{LogLevel, PrintLoggerFactory, LoggerConfig}
 import surf.rest.http.SimpleRESTServer
 import surf.rest.{ContentType, RESTHandler, RESTService, RESTResolver}
 
@@ -15,6 +15,7 @@ object Main extends App {
   import surf.rest.dsl._
 
   LoggerConfig.factory = PrintLoggerFactory()
+//  LoggerConfig.level = LogLevel.TRACE
 
   val resolver = RESTResolver.fromService(new RESTService {
     override def handle: RESTHandler =
