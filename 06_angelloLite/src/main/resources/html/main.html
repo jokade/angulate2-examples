@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <h2>Stories</h2>
+  <div class="callout"
+       *ngFor="#story of stories"
+       (click)="setCurrentStory(story)">
+    <story [story]="story"></story>
+  </div>
+  <a class="btn btn-primary" (click)="createStory()"><span class="glyphicon glyphicon-plus"></span></a>
+</div>
+<div class="col-md-1"></div>
+<story-form [story]="currentStory" *ngIf="currentStory"></story-form>

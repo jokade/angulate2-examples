@@ -22,3 +22,6 @@ This example is an adaptation of the [Tour of Heroes Turorial](https://angular.i
 
 ### 05 TodoMVC
 Port of the [TodoMVC app for Angular2](https://github.com/tastejs/todomvc/tree/master/examples/angular2) created by [Sam Saccone](http://github.com/samccone) and [Colin Eberhardt](http://github.com/colineberhardt).
+
+### 06 Angello Lite
+Port of the [Angello Lite](https://github.com/angularjs-in-action/angello-lite) app created by [Lukas Ruebbelke](https://github.com/simpulton) for his book [AngularJS in Action](http://www.manning.com/bford/).

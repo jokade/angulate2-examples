@@ -5,6 +5,7 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.11.6",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"
     //,"-Xmacro-settings:angulate2.debug.Component"
+    //,"-Xmacro-settings:angulate2.debug.Data"
   ),
   resolvers += Resolver.sonatypeRepo("snapshots"),
   publish := {},
@@ -13,8 +14,11 @@ lazy val commonSettings = Seq(
 
 lazy val root = project.in(file(".")).
   enablePlugins(Angulate2Plugin).
-  aggregate(firstApp, displayData, userInput, heroes).
-  settings(commonSettings:_*)
+  aggregate(firstApp, displayData, userInput, heroes, angelloLite).
+  settings(commonSettings:_*).
+  settings(
+    name := "angulate2-examples"
+  )
   
 lazy val firstApp = project.in(file("01_firstApp")).
   enablePlugins(Angulate2Plugin).
@@ -33,6 +37,10 @@ lazy val heroes = project.in(file("04_heroes")).
   settings(commonSettings:_*)
 
 lazy val todomvc = project.in(file("05_todomvc")).
+  enablePlugins(Angulate2Plugin).
+  settings(commonSettings:_*)
+
+lazy val angelloLite = project.in(file("06_angelloLite")).
   enablePlugins(Angulate2Plugin).
   settings(commonSettings:_*)
 

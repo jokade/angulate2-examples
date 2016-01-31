@@ -1,13 +1,12 @@
-import slogging.{LogLevel, PrintLoggerFactory, LoggerConfig}
-import surf.rest.http.SimpleRESTServer
-import surf.rest.{ContentType, RESTHandler, RESTService, RESTResolver}
-
 //     Project: angulate2-examples
 //      Module: server
 // Description: Main class for the HTTP server
 
 // Copyright (c) 2016 Johannes Kastner <jokade@karchedon.de>
 
+import slogging.{LogLevel, PrintLoggerFactory, LoggerConfig}
+import surf.rest.http.SimpleRESTServer
+import surf.rest.{ContentType, RESTHandler, RESTService, RESTResolver}
 
 object Main extends App {
   import concurrent.ExecutionContext.Implicits.global
@@ -18,7 +17,7 @@ object Main extends App {
 //  LoggerConfig.level = LogLevel.TRACE
 
   val resolver = RESTResolver.fromService(new RESTService {
-    override def handle: RESTHandler =
+    override val handle: RESTHandler =
       get { _ =>
         respondWithResource("index.html", ContentType.HTML)
       } ~
@@ -45,6 +44,12 @@ object Main extends App {
           respondWithResource("05_todomvc/index.html", ContentType.HTML)
         } ~
         serveStatic("05_todomvc/")
+      } ~
+      prefix("06") {
+        get { _ =>
+          respondWithResource("06_angelloLite/index.html", ContentType.HTML)
+        } ~
+        serveStatic("06_angelloLite/")
       }
   })
 

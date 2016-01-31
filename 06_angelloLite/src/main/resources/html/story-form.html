@@ -1,0 +1,47 @@
+<div class="col-md-6 content">
+  <h3>{{story.title}}</h3>
+  <form>
+    <div class="form-group">
+      <label for="inputTitle">Title</label>
+      <input id="inputTitle" type="text" class="form-control" placeholder="Title" requried
+             [(ngModel)]="story.title"
+      >
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputStatus">Status</label>
+      <select id="inputStatus" class="form-control"
+              [(ngModel)]="story.status">
+        <option *ngFor="#s of statuses" [value]="s">{{s}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputType">Type</label>
+      <select id="inputType" class="form-control"
+              [(ngModel)]="story.storyType">
+        <option *ngFor="#t of types" [value]="t">{{t}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputDescription">Description</label>
+      <textarea id="inputDescription" class="form-control" placeholder="Description"
+                [(ngModel)]="story.description"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputAcceptance">Acceptance Criteria</label>
+      <textarea id="inputAcceptance" class="form-control" placeholder="Acceptance Criteria"
+                [(ngModel)]="story.criteria"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="inputReporter">Reporter</label>
+      <input id="inputReporter" type="text" class="form-control" placeholder="Reporter" requried
+             [(ngModel)]="story.reporter"
+      >
+    </div>
+    <div class="form-group">
+      <label for="inputAssignee">Assignee</label>
+      <input id="inputAssignee" type="text" class="form-control" placeholder="Assignee" requried
+             [(ngModel)]="story.assignee"
+      >
+    </div>
+  </form>
+</div>
