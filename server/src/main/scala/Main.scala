@@ -5,6 +5,7 @@
 // Copyright (c) 2016 Johannes Kastner <jokade@karchedon.de>
 
 import slogging.{LogLevel, PrintLoggerFactory, LoggerConfig}
+import surf.ServiceRefRegistry
 import surf.rest.http.SimpleRESTServer
 import surf.rest.{ContentType, RESTHandler, RESTService, RESTResolver}
 
@@ -15,6 +16,9 @@ object Main extends App {
 
   LoggerConfig.factory = PrintLoggerFactory()
 //  LoggerConfig.level = LogLevel.TRACE
+
+  val registry = ServiceRefRegistry.singletonRegistry(Sync)
+  angellolite.server.register(registry)
 
   val resolver = RESTResolver.fromService(new RESTService {
     override val handle: RESTHandler =
@@ -55,7 +59,10 @@ object Main extends App {
         get { _ =>
           respondWithResource("06_angelloLite/index.html", ContentType.HTML)
         } ~
-        serveStatic("06_angelloLite/")
+        prefix("data") {
+          angellolite.server.handler
+        } ~
+        serveStatic("06_angelloLite/js/")
       }
   })
 

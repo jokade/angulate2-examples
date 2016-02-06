@@ -14,7 +14,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = project.in(file(".")).
   enablePlugins(Angulate2Plugin).
-  aggregate(firstApp, displayData, userInput, heroes, angelloLite).
+  aggregate(firstApp, displayData, userInput, heroes, angelloLiteJVM, angelloLiteJS).
   settings(commonSettings:_*).
   settings(
     name := "angulate2-examples"
@@ -40,11 +40,24 @@ lazy val todomvc = project.in(file("05_todomvc")).
   enablePlugins(Angulate2Plugin).
   settings(commonSettings:_*)
 
-lazy val angelloLite = project.in(file("06_angelloLite")).
-  enablePlugins(Angulate2Plugin).
-  settings(commonSettings:_*)
+lazy val angelloLite = crossProject.in(file("06_angelloLite"))
+  //.enablePlugins(Angulate2Plugin)
+  .settings(commonSettings:_*)
+  .jsConfigure(_.enablePlugins(Angulate2Plugin))
+  .jsSettings(
+  )
+  .jvmSettings(
+    libraryDependencies ++= Seq(
+      "de.surfice" %% "surf-rest" % "0.1-SNAPSHOT",
+      "de.surfice" %% "angulate2-stubs" % "0.1-SNAPSHOT"
+    )
+  )
+
+lazy val angelloLiteJVM = angelloLite.jvm
+lazy val angelloLiteJS = angelloLite.js
 
 lazy val server = project.
+  dependsOn(angelloLiteJVM).
   settings(commonSettings:_*).
   settings(
     run in Compile <<= (run in Compile) dependsOn (
@@ -53,7 +66,7 @@ lazy val server = project.
       fastOptJS in (userInput,Compile),
       fastOptJS in (heroes,Compile),
       fastOptJS in (todomvc,Compile),
-      fastOptJS in (angelloLite,Compile)
+      fastOptJS in (angelloLiteJS,Compile)
     ),
     libraryDependencies ++= Seq(
       "de.surfice" %% "surf-rest" % "0.1-SNAPSHOT"

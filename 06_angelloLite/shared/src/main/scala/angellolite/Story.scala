@@ -5,10 +5,11 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package angellolite
 
-import angulate2._
+import angulate2.Data
 
 @Data
-case class Story(var title: String,
+case class Story(var id: Int,
+                 var title: String,
                  var description: String,
                  var criteria: String,
                  var status: String,

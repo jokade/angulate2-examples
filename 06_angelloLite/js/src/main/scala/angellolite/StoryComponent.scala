@@ -12,4 +12,5 @@ import angulate2._
 )
 class StoryComponent {
   var story: Story = _
+
 }

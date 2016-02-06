@@ -14,11 +14,13 @@ import scala.scalajs.js
   templateUrl = "src/main/resources/html/story-form.html",
   inputs = @@("story")
 )
-class StoryFormComponent {
+class StoryFormComponent(storyService: StoryService) {
   var story: Story = _
 
   val statuses = js.Array( "Back Log", "To Do", "In Progress", "Code Review", "QA Review", "Verified", "Done")
   val types = js.Array("Feature","Enhancement","Bug","Spike")
+
+  def save() = storyService.saveStory(story)
 }
 
 @Data
