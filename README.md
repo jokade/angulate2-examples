@@ -25,3 +25,4 @@ Port of the [TodoMVC app for Angular2](https://github.com/tastejs/todomvc/tree/m
 
 ### 06 Angello Lite
 Port of the [Angello Lite](https://github.com/angularjs-in-action/angello-lite) app created by [Lukas Ruebbelke](https://github.com/simpulton) for his book [AngularJS in Action](http://www.manning.com/bford/).
+Uses the [Http](https://angular.io/docs/ts/latest/api/http/Http-class.html) client to load and save stories from/to the server.
