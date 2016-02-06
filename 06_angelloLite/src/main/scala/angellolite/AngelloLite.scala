@@ -6,6 +6,7 @@
 package angellolite
 
 import angulate2._
+import angulate2.http.{HTTP_PROVIDERS, Http}
 
 import scala.scalajs.js
 
@@ -13,7 +14,7 @@ import scala.scalajs.js
   selector = "angello-lite",
   templateUrl = "src/main/resources/html/main.html",
   directives = @@[StoryComponent,StoryFormComponent],
-  providers = @@[StoryService]
+  providers = @@[StoryService] :+ HTTP_PROVIDERS
 )
 class AngelloLite(storyService: StoryService) {
   var currentStory: js.UndefOr[Story] = js.undefined

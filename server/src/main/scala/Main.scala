@@ -33,6 +33,12 @@ object Main extends App {
         } ~
         serveStatic("02_displayData/")
       } ~
+      prefix("03") {
+        get { _ =>
+          respondWithResource("03_userInput/index.html", ContentType.HTML)
+        } ~
+        serveStatic("03_userInput/")
+      } ~
       prefix("04") {
         get { _ =>
           respondWithResource("04_heroes/index.html", ContentType.HTML)

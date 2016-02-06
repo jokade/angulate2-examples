@@ -14,7 +14,6 @@ import scala.scalajs.js
   templateUrl = "src/main/resources/html/story-form.html",
   inputs = @@("story")
 )
-@debug()
 class StoryFormComponent {
   var story: Story = _
 

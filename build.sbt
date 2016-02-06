@@ -50,8 +50,10 @@ lazy val server = project.
     run in Compile <<= (run in Compile) dependsOn (
       fastOptJS in (firstApp,Compile),
       fastOptJS in (displayData,Compile),
+      fastOptJS in (userInput,Compile),
       fastOptJS in (heroes,Compile),
-      fastOptJS in (todomvc,Compile)
+      fastOptJS in (todomvc,Compile),
+      fastOptJS in (angelloLite,Compile)
     ),
     libraryDependencies ++= Seq(
       "de.surfice" %% "surf-rest" % "0.1-SNAPSHOT"
