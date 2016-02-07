@@ -63,6 +63,21 @@ object Main extends App {
           angellolite.server.handler
         } ~
         serveStatic("06_angelloLite/js/")
+      } ~
+      prefix("07") {
+        get { _ =>
+          respondWithResource("07_router/index.html", ContentType.HTML)
+        } ~
+        prefix("heroes") {
+          case act => respondWithResource("07_router/index.html", ContentType.HTML)
+        } ~
+        prefix("hero") {
+          case act => respondWithResource("07_router/index.html", ContentType.HTML)
+        } ~
+        prefix("crisis-center") {
+          case act => respondWithResource("07_router/index.html", ContentType.HTML)
+        } ~
+        serveStatic("07_router/")
       }
   })
 

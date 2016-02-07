@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/07/">
+  <title>Angular2 Router Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.angularjs.org/2.0.0-beta.3/Rx.umd.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.3/angular2-polyfills.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.3/angular2-all.umd.js"></script>
+  <script src="/07/target/scala-2.11/router-fastopt.js"></script>
+  <script src="/07/target/scala-2.11/annotations.js"></script>
+</head>
+<body class="container">
+<my-app></my-app>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ng.platform.browser.bootstrap(router.AppComponent,[ng.router.ROUTER_PROVIDERS]);
+  });
+</script>
+</body>
+</html>
