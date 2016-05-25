@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <h2>Stories</h2>
   <div class="callout"
-       *ngFor="#story of stories"
+       *ngFor="let story of stories"
        (click)="setCurrentStory(story)">
     <story [story]="story"></story>
   </div>

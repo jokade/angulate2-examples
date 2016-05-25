@@ -11,14 +11,14 @@
       <label class="control-label" for="inputStatus">Status</label>
       <select id="inputStatus" class="form-control"
               [(ngModel)]="story.status">
-        <option *ngFor="#s of statuses" [value]="s">{{s}}</option>
+        <option *ngFor="let s of statuses" [value]="s">{{s}}</option>
       </select>
     </div>
     <div class="form-group">
       <label class="control-label" for="inputType">Type</label>
       <select id="inputType" class="form-control"
               [(ngModel)]="story.storyType">
-        <option *ngFor="#t of types" [value]="t">{{t}}</option>
+        <option *ngFor="let t of types" [value]="t">{{t}}</option>
       </select>
     </div>
     <div class="form-group">

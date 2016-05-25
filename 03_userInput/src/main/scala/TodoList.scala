@@ -4,7 +4,7 @@ import angulate2._
 @Component(
   selector = "todo-list",
   template = """<ul>
-                  <li *ngFor="#todo of todos">{{todo}}</li>
+                  <li *ngFor="let todo of todos">{{todo}}</li>
                 </ul> 
 
                 <input #todotext>

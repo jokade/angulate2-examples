@@ -13,7 +13,7 @@ import scala.scalajs.js
 @Component(
   template =
     """<ul>
-      |  <li *ngFor="#crisis of crises"
+      |  <li *ngFor="let crisis of crises"
       |    (click)="onSelect(crisis)">
       |    <span class="badge">{{crisis.id}}</span> {{crisis.name}}
       |  </li>

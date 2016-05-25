@@ -14,7 +14,7 @@ import scala.scalajs.js
   template =
     """<h2>HEROES</h2>
       |<ul>
-      |  <li *ngFor="#hero of heroes"
+      |  <li *ngFor="let hero of heroes"
       |     (click)="onSelect(hero)">
       |    <span class="badge">{{hero.id}}</span> {{hero.name}}
       |  </li>

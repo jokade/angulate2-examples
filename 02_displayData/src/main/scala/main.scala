@@ -12,7 +12,7 @@ class FriendsService {
   template = """<p>My name: {{ myName }}</p>
                 <p>Friends:</p>
                 <ul>
-                  <li *ngFor="#name of names">{{name}}</li>
+                  <li *ngFor="let name of names">{{name}}</li>
                 </ul> 
                 <p *ngIf="names.length > 3">You have many friends!</p>
              """,

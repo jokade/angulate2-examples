@@ -7,7 +7,6 @@ package angellolite.server
 
 import angellolite.Story
 import angellolite.server.StoryService.{UpdateStory, AddStory, Stories, ListStories}
-import surf.Service.Processor
 import surf._
 
 class StoryService extends Service {
