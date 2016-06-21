@@ -5,18 +5,19 @@
   <base href="/07/">
   <title>Angular2 Router Example</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://code.angularjs.org/2.0.0-beta.17/Rx.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.29/system.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.17/Rx.min.js"></script>
   <script src="https://code.angularjs.org/2.0.0-beta.17/angular2-polyfills.min.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-beta.17/angular2-all.umd.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.17/angular2.min.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.17/router.min.js"></script>
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.17/Rx.umd.min.js"></script>-->
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.17/angular2-polyfills.min.js"></script>-->
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.17/angular2-all.umd.min.js"></script>-->
   <script src="/07/target/scala-2.11/router-fastopt.js"></script>
-  <script src="/07/target/scala-2.11/annotations.js"></script>
+  <script src="/07/target/scala-2.11/router-sjsx.js"></script>
 </head>
 <body class="container">
 <my-app></my-app>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    ng.platform.browser.bootstrap(router.AppComponent,[ng.router.ROUTER_PROVIDERS]);
-  });
-</script>
 </body>
 </html>

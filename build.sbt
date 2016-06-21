@@ -1,8 +1,9 @@
+import Angulate2Plugin._
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
   version := "0.1-SNAPSHOT",
-  scalaVersion := "2.11.6",
+  scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"
     //,"-Xmacro-settings:angulate2.debug.Component"
     //,"-Xmacro-settings:angulate2.debug.Data"
@@ -14,7 +15,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = project.in(file(".")).
   enablePlugins(Angulate2Plugin).
-  aggregate(firstApp, displayData, userInput, heroes, angelloLiteJVM, angelloLiteJS, router).
+  aggregate(firstApp, displayData, userInput, heroes, angelloLiteJVM, angelloLiteJS, router, bootstrap).
   settings(commonSettings:_*).
   settings(
     name := "angulate2-examples"
@@ -41,6 +42,7 @@ lazy val todomvc = project.in(file("05_todomvc")).
   settings(commonSettings:_*)
 
 lazy val angelloLite = crossProject.in(file("06_angelloLite"))
+  .enablePlugins(Angulate2Plugin)
   .settings(commonSettings:_*)
   .jsConfigure(_.enablePlugins(Angulate2Plugin))
   .jsSettings(
@@ -58,11 +60,31 @@ lazy val angelloLiteJS = angelloLite.js
 
 lazy val router = project.in(file("07_router")).
   enablePlugins(Angulate2Plugin).
-  settings(commonSettings:_*)
+  settings(commonSettings:_*).
+  settings(
+    sjsxLoader := SJSXLoader.SystemJS,
+    sjsxDeps ++= Seq(
+      SJSXDependency("ng.router","angular2/router")
+    ),
+    ngBootstrap := Some("router.AppComponent")
+  )
+
+
+lazy val bootstrap = project.in(file("08_bootstrap")).
+  enablePlugins(Angulate2Plugin).
+  settings(commonSettings:_*).
+  settings(
+    sjsxLoader := SJSXLoader.SystemJS,
+    ngBootstrap := Some("bootstrap.AppComponent"),
+    jsDependencies ++= Seq(
+  //    "org.webjars.npm" % "ng2-bootstrap" % "1.0.16" / "bundles/ng2-bootstrap.min.js",
+    //  "org.webjars.bower" % "system.js" % "0.19.17" / "dist/system-register-only.js"
+    )
+  )
 
 
 lazy val server = project.
-  dependsOn(angelloLiteJVM).
+  //dependsOn(angelloLiteJVM).
   settings(commonSettings:_*).
   settings(
     run in Compile <<= (run in Compile) dependsOn (
@@ -70,9 +92,10 @@ lazy val server = project.
       fastOptJS in (displayData,Compile),
       fastOptJS in (userInput,Compile),
       fastOptJS in (heroes,Compile),
-      fastOptJS in (todomvc,Compile),
-      fastOptJS in (angelloLiteJS,Compile),
-      fastOptJS in (router,Compile)
+      fastOptJS in (todomvc,Compile)
+      //fastOptJS in (angelloLiteJS,Compile)
+      // fastOptJS in (router,Compile),
+      // fastOptJS in (bootstrap,Compile)
     ),
     libraryDependencies ++= Seq(
       "de.surfice" %% "surf-rest" % "0.1-SNAPSHOT"

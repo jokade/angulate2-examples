@@ -18,7 +18,7 @@ object Main extends App {
 //  LoggerConfig.level = LogLevel.TRACE
 
   val registry = ServiceRefRegistry.singletonRegistry(Sync)
-  angellolite.server.register(registry)
+  //angellolite.server.register(registry)
 
   val resolver = RESTResolver.fromService(new RESTService {
     override val handle: RESTHandler =
@@ -55,6 +55,7 @@ object Main extends App {
         } ~
         serveStatic("05_todomvc/")
       } ~
+      /*
       prefix("06") {
         get { _ =>
           respondWithResource("06_angelloLite/index.html", ContentType.HTML)
@@ -64,6 +65,7 @@ object Main extends App {
         } ~
         serveStatic("06_angelloLite/js/")
       } ~
+      */
       prefix("07") {
         get { _ =>
           respondWithResource("07_router/index.html", ContentType.HTML)
@@ -78,6 +80,12 @@ object Main extends App {
           case act => respondWithResource("07_router/index.html", ContentType.HTML)
         } ~
         serveStatic("07_router/")
+      } ~
+      prefix("08") {
+        get { _ =>
+          respondWithResource("08_bootstrap/index.html", ContentType.HTML)
+        } ~
+        serveStatic("08_bootstrap/")
       }
   })
 

@@ -8,12 +8,12 @@ package router
 import _root_.router.crisis.CrisisCenterComponent
 import _root_.router.heroes.{HeroDetailComponent, HeroListComponent, HeroService}
 import angulate2._
-import angulate2.router.{RDef, ROUTER_DIRECTIVES, RouteConfig}
+import angulate2.router.{ROUTER_PROVIDERS, RDef, ROUTER_DIRECTIVES, RouteConfig}
 
 @Component(
   selector = "my-app",
   directives = @@[ROUTER_DIRECTIVES],
-  providers = @@[HeroService,DialogService],
+  providers = @@[ROUTER_PROVIDERS,HeroService,DialogService],
   template =
     """<h1>Component Router</h1>
       |<nav>
@@ -28,4 +28,8 @@ import angulate2.router.{RDef, ROUTER_DIRECTIVES, RouteConfig}
   RDef(path = "/hero/:id",          name = "HeroDetail",   component = @#[HeroDetailComponent])
 )
 class AppComponent {
+}
+
+class B {
+  val X = new core.Injectable(null)
 }
