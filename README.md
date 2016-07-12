@@ -1,6 +1,8 @@
 # angulate2-examples
 Examples for [angulate2](https://github.com/jokade/angulate2) (a Scala.js binding library for [Angular 2](http://angular.io)).
 
+**WARNING**: since the angulate2 is still WIP (early alpha) some of these examples might fail on build or not work correctly! Furthermore, the some paerts of this README might be out of date!
+
 Getting Started
 ---------------
 Clone this repository, start `sbt` in the root directory, and then run one of the following examples.
