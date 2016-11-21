@@ -27,7 +27,7 @@ object Main extends App {
       } ~
       prefix("01") {
         get { _ =>
-          respondWithResource("01_firstApp/index.html", ContentType.HTML)
+          respondWithResource("01_firstApp/src/main/resources/index.html", ContentType.HTML)
         } ~
         serveStatic("01_firstApp/")
       } ~
