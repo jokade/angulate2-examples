@@ -6,35 +6,44 @@
 package heroes
 
 import angulate2._
+import angulate2.router.Router
 
 import scala.scalajs.js
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 @Component(
   selector = "my-heroes",
-  template =
-    """<h2>My Heroes</h2>
-      |<ul class="heroes">
-      |  <li *ngFor="let hero of heroes"
-      |    [class.selected]="hero === selectedHero"
-      |    (click)="onSelect(hero)">
-      |   <span class="badge">{{hero.id}}</span> {{hero.name}}
-      |  </li>
-      |</ul>
-      |<my-hero-detail [hero]="selectedHero"></my-hero-detail>
-    """.stripMargin
+  templateUrl = "/src/main/resources/heroes.component.html",
+  styleUrls = @@("src/main/resources/heroes.component.css")
 )
 //@debug
-class HeroesComponent(heroService: HeroService) extends OnInit {
-  var heroes: js.UndefOr[js.Array[Hero]] = _
-  var selectedHero: js.UndefOr[Hero] = js.undefined
+class HeroesComponent(router: Router,
+                      heroService: HeroService) extends OnInit {
+  var heroes: js.Array[Hero] = _
+  var selectedHero: js.UndefOr[Hero] = _
 
-  def onSelect(hero: Hero) = selectedHero = hero
-
-  def getHeroes(): Unit = heroService.getHeroes onSuccess {
-    case r => heroes = r
-  }
+  def getHeroes(): Unit = heroService.getHeroes.onFulfilled( this.heroes = _ )
 
   override def ngOnInit(): Unit = getHeroes()
+
+  def onSelect(hero: Hero): Unit = selectedHero = hero
+
+  def gotoDetail(): Unit = router.navigateTo("/detail",this.selectedHero.get.id)
+
+  def add(name: String): Unit = name.trim match {
+    case "" =>
+    case newHero => heroService.create(newHero).onFulfilled { hero =>
+      this.heroes.push(hero)
+      this.selectedHero = hero
+    }
+  }
+
+  def delete(hero: Hero): Unit = heroService
+    .delete(hero.id)
+    .onFulfilled{ _ =>
+      this.heroes = this.heroes.filter(_ != hero)
+      if(selectedHero == hero)
+        selectedHero = js.undefined
+    }
+
 }
 

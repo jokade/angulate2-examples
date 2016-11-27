@@ -7,5 +7,7 @@ package heroes
 
 import angulate2.Data
 
+import scala.scalajs.js
+
 @Data
-case class Hero(id: Int, name: String)
+case class Hero(id: Int, name: String) extends js.Any

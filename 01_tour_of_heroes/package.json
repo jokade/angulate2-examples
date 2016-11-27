@@ -1,9 +1,8 @@
 {
-  "name": "angulate2-examples",
+  "name": "angulate2-examples-heroes",
   "version": "0.1.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server"
+    "start": "lite-server"
   },
   "licenses": [
     {
@@ -29,7 +28,6 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
-    "concurrently": "^3.0.0",
     "lite-server": "^2.2.2"
   }
 }

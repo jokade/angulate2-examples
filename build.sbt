@@ -5,17 +5,23 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
+  publish := {},
+  publishLocal := {},
   libraryDependencies ++= Seq(
   ),
   scalacOptions ++= (if (isSnapshot.value) Seq.empty else Seq({
         val a = baseDirectory.value.toURI.toString.replaceFirst("[^/]+/?$", "")
-        val g = "https://raw.githubusercontent.com/jokade/angulate2-quickstart"
+        val g = "https://raw.githubusercontent.com/jokade/angulate2-examples"
         s"-P:scalajs:mapSourceURI:$a->$g/v${version.value}/"
       }))
 )
 
 lazy val root = project.in(file("."))
   .aggregate(heroes)
+  .settings(commonSettings: _*)
+  .settings(
+    name := "angulate2-examples"
+  )
 
 lazy val heroes = project.in(file("01_tour_of_heroes")).
   enablePlugins(Angulate2Plugin).
@@ -25,7 +31,6 @@ lazy val heroes = project.in(file("01_tour_of_heroes")).
     libraryDependencies ++= Seq(
     ),
     ngBootstrap := Some("heroes.AppModule")
-    //resolvers += Resolver.sonatypeRepo("releases")
   )
 
 

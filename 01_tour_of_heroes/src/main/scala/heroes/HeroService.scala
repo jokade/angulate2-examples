@@ -5,24 +5,40 @@
 package heroes
 
 import angulate2._
+import angulate2.http.Http
+import rxjs.RxPromise
 
-import scala.concurrent.Future
 import scala.scalajs.js
 
 @Injectable
-class HeroService {
-  def getHeroes = Future.successful(heroes)
+class HeroService(http: Http) {
+  private val heroesUrl = "app/heroes"
 
-  private val heroes = js.Array(
-    Hero(11,"Mr. Nice"),
-    Hero(12,"Narco"),
-    Hero(13,"Bombasto"),
-    Hero(14,"Celeritas"),
-    Hero(15,"Magenta"),
-    Hero(16,"RubberMan"),
-    Hero(17,"Dynama"),
-    Hero(18,"Dr IQ"),
-    Hero(19,"Magma"),
-    Hero(20,"Tornado")
-  )
+  def getHeroes: RxPromise[js.Array[Hero]] = http.get(heroesUrl).toPromise
+    .onFulfilled(_.jsonData[js.Array[Hero]])
+    .onError( handleError _ )
+
+  def getHero(id: Int): RxPromise[Hero] = getHeroes onFulfilled( _.find(_.id==id).get )
+
+  def update(hero: Hero): RxPromise[Hero] = {
+    val url = s"$heroesUrl/${hero.id}"
+    http.putJson(url, hero).toPromise
+      .onFulfilled(_ => hero)
+      .onError( handleError _ )
+  }
+
+  def create(name: String): RxPromise[Hero] = http
+    .postJson(heroesUrl,js.Dictionary("name"->name))
+    .toPromise
+    .onFulfilled( _.jsonData[Hero] )
+    .onError( handleError _ )
+
+  def delete(id: Int): RxPromise[Unit] = http
+    .delete(s"$heroesUrl/$id")
+    .toPromise
+    .onFulfilled( _ => () )
+    .onError( handleError _ )
+
+  private def handleError(error: js.Any) = js.Dynamic.global.console.log(error)
+
 }

@@ -5,23 +5,26 @@
 package heroes
 
 import angulate2._
+import angulate2.router.ActivatedRoute
+import angulate2.common.Location
 
-import scala.scalajs.js
 
 @Component(
   selector = "my-hero-detail",
-  template =
-    """<div *ngIf="hero">
-       <h2>{{hero.name}} details!</h2>
-       <div><label>id: </label>{{hero.id}}</div>
-       <div>
-         <label>name: </label>
-         <input [(ngModel)]="hero.name" placeholder="name">
-       </div>
-       </div>
-    """.stripMargin
+  templateUrl = "/src/main/resources/hero-detail.component.html",
+  styleUrls = @@("src/main/resources/hero-detail.component.css")
 )
-class HeroDetailComponent {
+class HeroDetailComponent(heroService: HeroService,
+                          route: ActivatedRoute,
+                          location: Location) extends OnInit {
   @Input
   var hero: Hero = _
+
+  def goBack(): Unit = location.back()
+
+  def save(): Unit = ()
+
+  override def ngOnInit(): Unit = route.params
+    .switchMap( (params,i) => heroService.getHero(params("id").toInt) )
+    .subscribe(this.hero = _)
 }
