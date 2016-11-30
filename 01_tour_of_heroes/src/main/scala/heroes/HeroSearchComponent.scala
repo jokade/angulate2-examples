@@ -5,7 +5,7 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package heroes
 
-import angulate2._
+import angulate2.std._
 import angulate2.router.Router
 import rxjs.{Observable, Subject}
 
@@ -14,7 +14,7 @@ import scala.scalajs.js
 @Component(
   selector = "hero-search",
   templateUrl = "/src/main/resources/hero-search.component.html",
-  styleUrls = @@("src/main/resources/hero-search.component.css"),
+  styleUrls = @@@("src/main/resources/hero-search.component.css"),
   providers = @@[HeroSearchService]
 )
 class HeroSearchComponent(heroSearchService: HeroSearchService, router: Router) extends OnInit {

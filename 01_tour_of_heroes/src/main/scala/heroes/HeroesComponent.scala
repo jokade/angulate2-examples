@@ -5,7 +5,7 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package heroes
 
-import angulate2._
+import angulate2.std._
 import angulate2.router.Router
 
 import scala.scalajs.js
@@ -13,7 +13,7 @@ import scala.scalajs.js
 @Component(
   selector = "my-heroes",
   templateUrl = "/src/main/resources/heroes.component.html",
-  styleUrls = @@("src/main/resources/heroes.component.css")
+  styleUrls = @@@("src/main/resources/heroes.component.css")
 )
 //@debug
 class HeroesComponent(router: Router,

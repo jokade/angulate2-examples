@@ -5,7 +5,7 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package heroes
 
-import angulate2._
+import angulate2.std._
 
 @Component(
   selector = "my-app",
@@ -17,7 +17,7 @@ import angulate2._
        </nav>
        <router-outlet></router-outlet>
     """,
-  styleUrls = @@("src/main/resources/app.component.css")
+  styleUrls = @@@("src/main/resources/app.component.css")
 )
 class AppComponent {
   val title = "Tour of Heroes"
