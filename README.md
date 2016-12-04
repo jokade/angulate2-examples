@@ -1,8 +1,6 @@
 # angulate2-examples
 Examples for [angulate2](https://github.com/jokade/angulate2) (a Scala.js binding library for [Angular 2](http://angular.io)).
 
-**WARNING**: since the angulate2 is still WIP (early alpha) some of these examples might fail on build or not work correctly! Furthermore, the some paerts of this README might be out of date!
-
 Getting Started
 ---------------
 ### Prerequisites
@@ -19,4 +17,4 @@ If you don't want to install the dependencies separately for every subdir, creat
 Start any of the example by running `npm start` in any of the example subfolders.
 
 ## List of Examples
-* `01_tour_of_heroes/`: the introductory Angular2 "[Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/)" tutorial.
+* `heroes/`: the introductory Angular2 "[Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/)" tutorial.
