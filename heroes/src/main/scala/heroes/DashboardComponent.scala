@@ -19,3 +19,6 @@ class DashboardComponent(heroService: HeroService) extends OnInit {
 
   override def ngOnInit(): Unit = heroService.getHeroes.onFulfilled ( res => this.heroes = res.slice(1,5) )
 }
+object DashboardComponent {
+  val mydata = 1
+}
