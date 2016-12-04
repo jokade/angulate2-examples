@@ -1,7 +1,7 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.1-SNAPSHOT",
+  version := "0.0.1",
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
@@ -23,10 +23,10 @@ lazy val root = project.in(file("."))
     name := "angulate2-examples"
   )
 
-lazy val heroes = project.in(file("01_tour_of_heroes")).
-  enablePlugins(Angulate2Plugin).
-  settings(commonSettings: _*).
-  settings( 
+lazy val heroes = project
+  .enablePlugins(Angulate2Plugin)
+  .settings(commonSettings: _*)
+  .settings( 
     name := "heroes",
     libraryDependencies ++= Seq(
     ),
