@@ -7,6 +7,7 @@ package heroes
 import angulate2.std._
 import angulate2.router.ActivatedRoute
 import angulate2.common.Location
+import angulate2.ext.debug
 
 
 @Component(

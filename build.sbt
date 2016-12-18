@@ -1,7 +1,7 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.0.2",
+  version := "0.0.3",
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
@@ -17,7 +17,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .aggregate(heroes)
+  .aggregate(heroes,attributeDirective)
   .settings(commonSettings: _*)
   .settings(
     name := "angulate2-examples"
@@ -28,9 +28,14 @@ lazy val heroes = project
   .settings(commonSettings: _*)
   .settings( 
     name := "heroes",
-    libraryDependencies ++= Seq(
-    ),
     ngBootstrap := Some("heroes.AppModule")
   )
 
+lazy val attributeDirective = project
+  .enablePlugins(Angulate2Plugin)
+  .settings(commonSettings: _*)
+  .settings(
+    name := "attributeDirective",
+    ngBootstrap := Some("directive.AppModule")
+  )
 
