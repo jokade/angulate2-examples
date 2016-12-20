@@ -5,8 +5,8 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package directive
 
-import angulate2.core.{ElementRef, HostListener, Renderer}
-import angulate2.ext.{classModeJS, debug}
+import angulate2.core.{Directive => _, Input => _, _}
+import angulate2.ext.classModeJS
 import angulate2.std._
 
 import scala.scalajs.js
@@ -14,6 +14,7 @@ import scala.scalajs.js
 @Directive(
   selector = "[myHighlight]"
 )
+//@debug
 @classModeJS
 class HighlightDirective(el: ElementRef, renderer: Renderer) {
   private var _defaultColor = "red"

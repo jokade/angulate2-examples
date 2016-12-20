@@ -1,7 +1,7 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.0.3",
+  version := "0.0.4-SNAPSHOT",
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
@@ -39,3 +39,10 @@ lazy val attributeDirective = project
     ngBootstrap := Some("directive.AppModule")
   )
 
+lazy val various = project
+  .enablePlugins(Angulate2Plugin)
+  .settings(commonSettings: _*)
+  .settings(
+    name := "various",
+    ngBootstrap := Some("various.AppModule")
+  )
