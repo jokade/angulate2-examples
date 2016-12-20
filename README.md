@@ -18,3 +18,4 @@ Start any of the example by running `npm start` in any of the example subfolders
 
 ## List of Examples
 * `heroes/`: the introductory Angular2 "[Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/)" tutorial.
+* `attributeDirective/`: tutorial on [Attribute Directives](https://angular.io/docs/ts/latest/guide/attribute-directives.html#).
