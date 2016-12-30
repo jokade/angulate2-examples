@@ -5,6 +5,7 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package heroes
 
+import angulate2.ext.debug
 import angulate2.std._
 
 import scala.scalajs.js

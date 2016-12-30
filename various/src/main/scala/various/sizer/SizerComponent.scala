@@ -3,10 +3,10 @@
 // Description:
 
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
-package various
+package various.sizer
 
 import angulate2.core.EventEmitter
-import angulate2.ext.{classModeJS, debug}
+import angulate2.ext.debug
 import angulate2.std._
 
 @Component(
@@ -29,7 +29,6 @@ class SizerExampleComponent {
       |</div>
     """.stripMargin
 )
-@debug
 class SizerComponent {
   @Input
   var size: Int = _

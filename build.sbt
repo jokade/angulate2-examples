@@ -1,7 +1,7 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.0.4-SNAPSHOT",
+  version := "0.0.4",
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
@@ -17,7 +17,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .aggregate(heroes,attributeDirective)
+  .aggregate(heroes,attributeDirective,various)
   .settings(commonSettings: _*)
   .settings(
     name := "angulate2-examples"

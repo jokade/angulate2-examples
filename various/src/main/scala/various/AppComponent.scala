@@ -20,6 +20,7 @@ class AppComponent {
     """<h1>Various Examples</h1>
       |<nav>
       |  <a routerLink="/sizer">Two-way binding (sizer component)</a>
+      |  <a routerLink="/hostBinding">@HostBinding</a>
       |</nav>
     """.stripMargin
 )
