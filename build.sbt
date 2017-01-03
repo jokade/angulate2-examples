@@ -1,13 +1,15 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.0.4",
+  version := "0.0.5-SNAPSHOT",
   scalaVersion := "2.11.8",
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
   publish := {},
   publishLocal := {},
   libraryDependencies ++= Seq(
+    "com.lihaoyi" %%% "scalatags" % "0.6.+"
+//    "org.scala-js" %%% "scalajs-dom" % "0.9.0"
   ),
   scalacOptions ++= (if (isSnapshot.value) Seq.empty else Seq({
         val a = baseDirectory.value.toURI.toString.replaceFirst("[^/]+/?$", "")
@@ -17,7 +19,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .aggregate(heroes,attributeDirective,various)
+  .aggregate(heroes,attributeDirective,routing,various)
   .settings(commonSettings: _*)
   .settings(
     name := "angulate2-examples"
@@ -37,6 +39,14 @@ lazy val attributeDirective = project
   .settings(
     name := "attributeDirective",
     ngBootstrap := Some("directive.AppModule")
+  )
+
+lazy val routing = project
+  .enablePlugins(Angulate2Plugin)
+  .settings(commonSettings: _*)
+  .settings(
+    name := "routing",
+    ngBootstrap := Some("routing.AppModule")
   )
 
 lazy val various = project
