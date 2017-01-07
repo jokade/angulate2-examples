@@ -1,5 +1,5 @@
 {
-  "name": "angulate2-examples-heroes",
+  "name": "angulate2-examples-routing",
   "version": "0.1.0",
   "scripts": {
     "start": "lite-server"

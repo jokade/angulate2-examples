@@ -9,10 +9,11 @@ import angulate2.platformBrowser.BrowserModule
 import angulate2.router.{Route, RouterModule}
 import angulate2.std._
 import various.hostBinding.{HostBindingExampleComponent, HostBindingModule}
+import various.pipe.{CustomPipeModule, PowerBoosterComponent}
 import various.sizer.{SizerExampleComponent, SizerModule}
 
 @NgModule(
-  imports = @@[BrowserModule,SizerModule,HostBindingModule] :+
+  imports = @@[BrowserModule,SizerModule,HostBindingModule,CustomPipeModule] :+
     RouterModule.forRoot(@@@(
       Route(
         path = "sizer",
@@ -21,6 +22,10 @@ import various.sizer.{SizerExampleComponent, SizerModule}
       Route(
         path = "hostBinding",
         component = %%[HostBindingExampleComponent]
+      ),
+      Route(
+        path = "customPipe",
+        component = %%[PowerBoosterComponent]
       ),
       Route(
         path = "",

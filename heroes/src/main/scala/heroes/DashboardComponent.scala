@@ -18,5 +18,5 @@ import scala.scalajs.js
 class DashboardComponent(heroService: HeroService) extends OnInit {
   var heroes: js.Array[Hero] = _
 
-  override def ngOnInit(): Unit = heroService.getHeroes.onFulfilled ( res => this.heroes = res.slice(1,5) )
+  override def ngOnInit(): Unit = heroService.getHeroes.map ( res => this.heroes = res.slice(1,5) )
 }

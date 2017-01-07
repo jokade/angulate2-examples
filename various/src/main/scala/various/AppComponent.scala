@@ -21,6 +21,7 @@ class AppComponent {
       |<nav>
       |  <a routerLink="/sizer">Two-way binding (sizer component)</a>
       |  <a routerLink="/hostBinding">@HostBinding</a>
+      |  <a routerLink="/customPipe">Custom Pipe</a>
       |</nav>
     """.stripMargin
 )

@@ -5,7 +5,6 @@
 // Copyright (c) 2016. Distributed under the MIT License (see included LICENSE file).
 package various.hostBinding
 
-import angulate2.ext.debug
 import angulate2.std._
 
 @NgModule(
@@ -29,7 +28,6 @@ class HostBindingExampleComponent
     """<div>HostBinding</div>
     """
 )
-@debug
 class HostBindingComponent {
 //  @HostBinding("class")
 //  var classNames: String = "valid"

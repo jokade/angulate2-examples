@@ -21,7 +21,7 @@ class HeroesComponent(router: Router,
   var heroes: js.Array[Hero] = _
   var selectedHero: js.UndefOr[Hero] = _
 
-  def getHeroes(): Unit = heroService.getHeroes.onFulfilled( this.heroes = _ )
+  def getHeroes(): Unit = heroService.getHeroes.map( this.heroes = _ )
 
   override def ngOnInit(): Unit = getHeroes()
 
@@ -31,7 +31,7 @@ class HeroesComponent(router: Router,
 
   def add(name: String): Unit = name.trim match {
     case "" =>
-    case newHero => heroService.create(newHero).onFulfilled { hero =>
+    case newHero => heroService.create(newHero).map { hero =>
       this.heroes.push(hero)
       this.selectedHero = hero
     }
@@ -39,7 +39,7 @@ class HeroesComponent(router: Router,
 
   def delete(hero: Hero): Unit = heroService
     .delete(hero.id)
-    .onFulfilled{ _ =>
+    .map{ _ =>
       this.heroes = this.heroes.filter(_ != hero)
       if(selectedHero == hero)
         selectedHero = js.undefined
