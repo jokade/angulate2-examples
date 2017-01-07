@@ -1,8 +1,9 @@
 
 lazy val commonSettings = Seq(
   organization := "de.surfice",
-  version := "0.0.5-SNAPSHOT",
+  version := "0.0.5",
   scalaVersion := "2.11.8",
+  crossScalaVersions := Seq("2.11.8","2.12.1"),
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
   publish := {},
