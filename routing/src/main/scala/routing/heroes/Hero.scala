@@ -6,6 +6,7 @@
 package routing.heroes
 
 import angulate2.std._
+import angulate2.ext.data._
 
 import scala.scalajs.js
 

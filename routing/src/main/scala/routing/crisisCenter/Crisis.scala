@@ -6,6 +6,7 @@
 package routing.crisisCenter
 
 import angulate2.std._
+import angulate2.ext.data._
 
 @Data
 case class Crisis(id: Int, var name: String)

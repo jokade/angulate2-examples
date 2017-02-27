@@ -23,6 +23,7 @@ class AppComponent {
       |  <a routerLink="/hostBinding">@HostBinding</a>
       |  <a routerLink="/customPipe">Custom Pipe</a>
       |  <a routerLink="/dynamic">Dynamic Template</a>
+      |  <a routerLink="/data">Data annotations</a>
       |</nav>
     """.stripMargin
 )

@@ -9,6 +9,7 @@ import angulate2.platformBrowser.BrowserModule
 import angulate2.router.Route
 import angulate2.std._
 import slogging._
+import various.data.{DataAnnotationExampleComponent, DataAnnotationModule}
 import various.dynamic.{DynamicExampleComponent, DynamicModule}
 import various.hostBinding.{HostBindingExampleComponent, HostBindingModule}
 import various.pipe.{CustomPipeModule, PowerBoosterComponent}
@@ -21,6 +22,7 @@ import various.sizer.{SizerExampleComponent, SizerModule}
     HostBindingModule,
     CustomPipeModule,
     DynamicModule,
+    DataAnnotationModule,
     AppRoutes],
   declarations = @@[AppComponent,TocComponent],
   bootstrap = @@[AppComponent]
@@ -48,6 +50,10 @@ class AppModule {
   Route(
     path = "dynamic",
     component = %%[DynamicExampleComponent]
+  ),
+  Route(
+    path = "data",
+    component = %%[DataAnnotationExampleComponent]
   ),
   Route(
     path = "",
