@@ -31,6 +31,9 @@ class HeroSearchComponent(heroSearchService: HeroSearchService, router: Router) 
     .debounceTime(300)
     .distinctUntilChanged()
     .switchMap( (term,_) => if(term.trim=="") Observable.of(js.Array[Hero]()) else heroSearchService.search(term) )
-    .onError( err => js.Dynamic.global.console.log(err) )( js.Array[Hero]() )
+    .`catch`{ (err,_) =>
+      js.Dynamic.global.console.log(err)
+      Observable.of(js.Array[Hero]())
+    }
 
 }

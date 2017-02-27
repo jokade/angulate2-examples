@@ -10,4 +10,5 @@ import angulate2.std._
 import scala.scalajs.js
 
 @Data
+@debug
 case class Hero(id: Int, name: String) extends js.Any
